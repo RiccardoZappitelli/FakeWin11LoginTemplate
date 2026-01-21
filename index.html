@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div tabindex="0" class="first_step hidden">
+        <h1 id="time"></h1>
+        <h2 style="font-weight: bold;" id="date"></h2>
+    </div>
+    <div class="second_step">
+        <div class="login_card">
+            <img src="https://placehold.co/100x100" alt="User Avatar" class="avatar">
+            <h2 class="pin_text">Insert your PIN</h2>
+            <input type="password" placeholder="Password" class="pin_input">
+        </div>
+        <a href="">I forgot my password</a>
+        <a href="">Access options</a>
+    </div>
+</div>
+
+</body>
+<script>
+const time_text = document.getElementById("time");
+const date_text = document.getElementById("date");
+const firstStep = document.querySelector(".first_step");
+
+const userLocale = navigator.languages && navigator.languages.length ? navigator.languages[0] : navigator.language;
+const now = new Date();
+const options = { weekday: 'long', day: 'numeric', month: 'long' };
+date_text.innerHTML = new Intl.DateTimeFormat(userLocale, options).format(now);
+
+function update_time() {
+    const curr_date = new Date();
+    const hours = String(curr_date.getHours()).padStart(2, '0');
+    const minutes = String(curr_date.getMinutes()).padStart(2, '0');
+    time_text.innerHTML = `${hours}:${minutes}`;
+}
+update_time();
+setInterval(update_time, 1000);
+
+// Spacebar listener
+firstStep.onkeydown = function(e) {
+    if (e.key === " " || e.code === "Space" || e.keyCode === 32) {
+        firstStep.classList.add("hidden");
+    }
+};
+firstStep.onclick = ()=>{
+    firstStep.classList.add("hidden");
+}
+
+</script>
+</html>
