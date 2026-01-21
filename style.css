@@ -19,7 +19,7 @@ html, body {
 }
 
 h2 {
-    font-weight: 450;
+    font-weight: 350;
 }
 
 .first_step, .second_step {
@@ -104,7 +104,7 @@ h2 {
 .pin_input {
     font-size: 20px;
     padding-left: 12px;
-    width: 250px;
+    width: 300px;
     height: 35px;
     border: none;
     border-bottom: solid red;
@@ -116,4 +116,41 @@ h2 {
 
 .pin_input::placeholder{
     color: rgba(255, 255, 255, 0.37)
+}
+
+.second_step .user_list {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.second_step .user_item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.055);
+    width: 210px;
+    padding: 10px;
+    border-radius: 11px;
+}
+
+.second_step .user_item:hover {
+    background-color: rgba(0, 0, 0, 0.171);
+}
+
+.second_step .user_avatar_small {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.second_step .user_item span {
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
 }
